@@ -4,10 +4,11 @@
 
 - This git repo contains all necessary code contents and exercises of the book [An Introduction to Programming in Go](https://www.golang-book.com/books/intro)
   
-[![Go Report Card](https://goreportcard.com/badge/github.com/pkbhowmick/golang-book)](https://goreportcard.com/report/github.com/pkbhowmick/golang-book)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pkbhowmick/golang-book)](https://goreportcard.com/report/github.com/pkbhowmick/golang-book)  
 
-Contents
----- 
+## Contents
+
+--- 
 - Chapter 2 : [Your First Program](https://github.com/pkbhowmick/golang-book/tree/master/chapter2)
 - Chapter 3: [Types](https://github.com/pkbhowmick/golang-book/tree/master/chapter3)
 - Chapter 4: [Variables](https://github.com/pkbhowmick/golang-book/tree/master/chapter4)
