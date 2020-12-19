@@ -5,21 +5,21 @@ import "fmt"
 // Simple function
 func average(list []float64) float64 {
 	total := 0.0
-	for _,val := range list {
+	for _, val := range list {
 		total += val
 	}
-	return total/float64(len(list))
+	return total / float64(len(list))
 }
 
 // Returning multiple values
-func multi(x,y int) (int,int) {
-	return x+y,x-y
+func multi(x, y int) (int, int) {
+	return x + y, x - y
 }
 
 // Variadic functions
 func add(args ...float64) float64 {
 	total := 0.0
-	for _,val := range args{
+	for _, val := range args {
 		total += val
 	}
 	return total
@@ -37,26 +37,26 @@ func makeEvenGenerator() func() int {
 
 // Recursion
 func factorial(x uint) uint {
-	if x==0 {
+	if x == 0 {
 		return 1
 	}
 	return x * factorial(x-1)
 }
 
 // Defer (Go has a special statement called defer which schedules a function call to be run after the function completes)
-func first()  {
+func first() {
 	fmt.Println("First function")
 }
-func second()  {
+func second() {
 	fmt.Println("Second function")
 }
-func deferExample()  {
+func deferExample() {
 	defer second()
 	first()
 }
 
 // Panic & Recover
-func panicExample()  {
+func panicExample() {
 	defer func() {
 		str := recover()
 		fmt.Println(str)
@@ -65,9 +65,9 @@ func panicExample()  {
 }
 
 func main() {
-	xs := []float64{2,3,1,6,7,8,9}
+	xs := []float64{2, 3, 1, 6, 7, 8, 9}
 	fmt.Println(average(xs))
-	fmt.Println(multi(3,2))
+	fmt.Println(multi(3, 2))
 	fmt.Println(add(xs...))
 
 	nextEven := makeEvenGenerator()

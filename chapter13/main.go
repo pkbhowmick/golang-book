@@ -11,37 +11,37 @@ import (
 
 type Person struct {
 	Name string
-	Age int
+	Age  int
 }
 
 type ByName []Person
 type ByAge []Person
 
-func (this ByName)Len() int {
+func (this ByName) Len() int {
 	return len(this)
 }
 
-func (this ByName)Less(i,j int) bool {
+func (this ByName) Less(i, j int) bool {
 	return this[i].Name < this[j].Name
 }
 
-func (this ByName)Swap(i,j int)  {
-	this[i],this[j] = this[j],this[i]
+func (this ByName) Swap(i, j int) {
+	this[i], this[j] = this[j], this[i]
 }
 
-func (this ByAge)Len() int {
+func (this ByAge) Len() int {
 	return len(this)
 }
 
-func (this ByAge)Less(i,j int) bool {
+func (this ByAge) Less(i, j int) bool {
 	return this[i].Age < this[j].Age
 }
 
-func (this ByAge)Swap(i,j int)  {
-	this[i],this[j] = this[j],this[i]
+func (this ByAge) Swap(i, j int) {
+	this[i], this[j] = this[j], this[i]
 }
 
-func main()  {
+func main() {
 	fmt.Println(
 		// true
 		strings.Contains("test", "es"),
@@ -59,7 +59,7 @@ func main()  {
 		strings.Index("reset", "e"),
 
 		// "a-b"
-		strings.Join([]string{"a","b","c"}, "-"),
+		strings.Join([]string{"a", "b", "c"}, "-"),
 
 		// == "aaaaa"
 		strings.Repeat("a", 5),
@@ -79,21 +79,21 @@ func main()  {
 	// file io with os package
 	file, err := os.Open("test.txt")
 	if err != nil {
-		fmt.Errorf("Error: %v\n",err)
+		fmt.Errorf("Error: %v\n", err)
 		return
 	}
 	defer file.Close()
 
 	stat, err := file.Stat()
 	if err != nil {
-		fmt.Errorf("Error: %v\n",err)
+		fmt.Errorf("Error: %v\n", err)
 		return
 	}
 
 	bs := make([]byte, stat.Size())
-	_,err  = file.Read(bs)
+	_, err = file.Read(bs)
 	if err != nil {
-		fmt.Errorf("Error: %v\n",err)
+		fmt.Errorf("Error: %v\n", err)
 		return
 	}
 
@@ -101,28 +101,28 @@ func main()  {
 	fmt.Println(str)
 
 	// file io with io/ioutil package
-	file2,err := ioutil.ReadFile("test.txt")
+	file2, err := ioutil.ReadFile("test.txt")
 	if err != nil {
-		fmt.Errorf("Error: %v\n",err)
+		fmt.Errorf("Error: %v\n", err)
 		return
 	}
 	fmt.Println(string(file2))
 
 	// read files from the directory
 	dir, err := os.Open(".")
-	if err != nil{
-		fmt.Errorf("Error: %v\n",err)
+	if err != nil {
+		fmt.Errorf("Error: %v\n", err)
 		return
 	}
 	defer dir.Close()
 
 	fileInfos, err := dir.Readdir(-1)
-	if err != nil{
-		fmt.Errorf("Error: %v\n",err)
+	if err != nil {
+		fmt.Errorf("Error: %v\n", err)
 		return
 	}
 
-	for _,fi :=range fileInfos{
+	for _, fi := range fileInfos {
 		fmt.Println(fi.Name())
 	}
 
@@ -132,18 +132,17 @@ func main()  {
 	x.PushFront(3)
 	x.PushBack(1)
 
-	for e:= x.Front(); e!=nil ; e=e.Next() {
+	for e := x.Front(); e != nil; e = e.Next() {
 		fmt.Println(e.Value)
 	}
 
 	// sort package
-	xs := []int{2,1,3}
+	xs := []int{2, 1, 3}
 	sort.Ints(xs)
 	fmt.Println(xs)
 
-
 	kids := []Person{
-		{"Bob",15},
+		{"Bob", 15},
 		{"Alice", 20},
 	}
 
@@ -152,6 +151,5 @@ func main()  {
 
 	sort.Sort(ByAge(kids))
 	fmt.Println(kids)
-
 
 }

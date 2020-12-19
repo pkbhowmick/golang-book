@@ -3,10 +3,10 @@ package main
 
 import "fmt"
 
-func main()  {
+func main() {
 	var f float64
 	fmt.Println("Enter farhenhiet value: ")
-	fmt.Scanf("%f",&f)
-	c := ((f-32.0)*5)/9
+	fmt.Scanf("%f", &f)
+	c := ((f - 32.0) * 5) / 9
 	fmt.Println(c)
 }

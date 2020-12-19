@@ -7,9 +7,9 @@ import (
 	"time"
 )
 
-func server()  {
-	ln, err := net.Listen("tcp",":9999")
-	if err!= nil{
+func server() {
+	ln, err := net.Listen("tcp", ":9999")
+	if err != nil {
 		fmt.Println(err)
 		return
 	}
@@ -23,7 +23,7 @@ func server()  {
 	}
 }
 
-func handleServerConnection(c net.Conn)  {
+func handleServerConnection(c net.Conn) {
 	// receive the message
 	var msg string
 	err := gob.NewDecoder(c).Decode(&msg)
@@ -54,7 +54,7 @@ func client() {
 	c.Close()
 }
 
-func main()  {
+func main() {
 	go server()
 	time.Sleep(time.Second)
 	go client()
